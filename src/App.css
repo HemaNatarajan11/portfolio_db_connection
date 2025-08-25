@@ -1,0 +1,27 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section padding */
+.section {
+  padding: 60px 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .section {
+    padding: 0px;
+  }
+}

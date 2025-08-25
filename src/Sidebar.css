@@ -1,0 +1,95 @@
+:root {
+  --ss-bgcolor: linear-gradient(135deg, #83d8d8 0%, #ebbcd3 100%);
+  --ss-color: rgb(12, 11, 11);
+  --ss-licolor: black;
+  --ham-color: #333;
+  --sidebar-width: 200px;
+  --ham-txcolor: white;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--sidebar-width);
+  background: var(--ss-bgcolor);
+  color: var(--ss-color);
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+.sidebar nav ul li a {
+  margin: 0.5rem;
+  text-decoration: none;
+  color: var(--ss-licolor);
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.logo {
+  margin: 0.5rem;
+}
+.sidebar ul li {
+  margin-bottom: 50px;
+  list-style: none;
+}
+
+/* Show when "open" class is applied */
+.sidebar.open {
+  transform: translateX(0);
+}
+.sidebar ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #222;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Hamburger button style */
+.hamburger {
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  background: var(--ham-color);
+  color: var(--ham-txcolor);
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 101;
+  border: none; /* Above the sidebar */
+  border-radius: 10px;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Hide hamburger and always show sidebar on bigger screens */
+@media screen and (min-width: 800px) {
+  .hamburger {
+    display: none;
+  }
+
+  .sidebar {
+    transform: translateX(0);
+    width: var(--sidebar-width);
+  }
+  main {
+    margin-left: var(--sidebar-width);
+  }
+
+  .sidebar nav ul li a {
+    text-decoration: none;
+    color: var(--ss-licolor);
+  }
+  .sidebar ul li {
+    margin-bottom: 50px;
+    list-style: none;
+  }
+  .sidebar ul li a:hover {
+    transition: all 0.3s linear;
+  }
+}
